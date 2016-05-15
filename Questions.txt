@@ -1,0 +1,8 @@
+1 Binary Vector Space Model?
+Test collections links?
+Test collections judgments?
+Stemming nltk ili xml?
+Scorovi od VSM-a su onda inicijalni scorovi za PageRank?
+Pokazat strukturu kolekcije i pitat jel to tak treba bit?
+Zasto su razliciti clanci za ralzicite querije?
+Vokabular gradimo na cijeloj kolekciji ili samo na folderima vezanim uz querije?
