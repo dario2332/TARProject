@@ -36,10 +36,11 @@ def get_texts(stdout=False):
 
 
 def main():
-    vsm = VSM()
     texts, query = get_texts()
-    vsm.createVocabulary(texts)
-    print map(lambda key: (key[0].name, key[1]), vsm.retrieveArticles(query))
+    vsm = VSM(texts)
+    results = vsm.retrieveArticles(query)
+    for res in results:
+      print res[0].name, res[1]
     # print texts[0].text
     # print len(texts)
 
