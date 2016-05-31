@@ -3,9 +3,12 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import string
 from collections import namedtuple
+import numpy as np
+from scipy import spatial
+from scipy.spatial import distance
 
 
-class VSM(object):
+class BinaryVSM(object):
 
     def createVocabulary(self, articles):
         self.vocabulary = set()
@@ -28,6 +31,68 @@ class VSM(object):
         scores = []
         for article in self.articles:
             scores.append(self.hammingDistance(article.text, query_vector))
+        articles = sorted(zip(self.articles, scores), key = lambda scored_article: scored_article[1])
+        return articles
+
+def convertTextToVector(text):
+    stop = stopwords.words('english') + list(string.punctuation)
+    st = PorterStemmer()
+    return [st.stem(i) for i in word_tokenize(text.lower()) if i not in stop]
+
+class Document(object):
+    def __init__(self, article):
+        self.name = article.name
+        vector = convertTextToVector(article.text)
+        self.terms = {}
+        self.vector = None
+        for term in vector:
+            self.terms[term] = self.terms.get(term, 0) + 1
+
+    def freq(self, term):
+        return self.terms.get(term, 0)
+
+    #term frequency
+    def tf(self, vocabulary=None):
+        if (self.vector != None):
+            return self.vector
+        self.vector = np.zeros(len(vocabulary))
+        for i, term in enumerate(vocabulary):
+            self.vector[i] = self.freq(term)
+        maxFreq = max(self.terms.values())
+        self.vector = 0.5 + self.vector/maxFreq
+        return self.vector
+
+def filter(a):
+    if a != 0.5:
+        return 1
+    else:
+        return 0
+
+class VSM(object):
+
+    def __init__(self, articles):
+        self.vocabulary = {}
+        self.articles = []
+        for article in articles:
+            self.articles.append(Document(article))
+            for term in self.articles[-1].terms:
+                self.vocabulary[term] = self.vocabulary.get(term, 0) + self.articles[-1].freq(term)
+
+        self.idf = np.zeros(len(self.vocabulary))
+        ones = np.ones(len(self.vocabulary))
+        vfilter = np.vectorize(filter)
+        for article in self.articles:
+            tf = article.tf(self.vocabulary.keys())
+            self.idf += vfilter(tf)
+        self.idf = np.log(len(articles) / self.idf)
+
+    def retrieveArticles(self, query):
+        query = Document(query)
+        scores = []
+        for article in self.articles:
+            document_vector = self.idf * article.tf()
+            query_vector = self.idf * query.tf(self.vocabulary.keys())
+            scores.append(distance.cosine(document_vector, query_vector))
         articles = sorted(zip(self.articles, scores), key = lambda scored_article: scored_article[1])
         return articles
 
