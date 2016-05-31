@@ -1,46 +1,44 @@
 import xml.etree.ElementTree as ET
-import re
-from os import listdir
-from os.path import isfile
 from collections import namedtuple
+from os import listdir
 from VSM import VSM
 
-Text = namedtuple('Text', 'name, text')
+NamedText = namedtuple("Text", 'text, name')
 
-def get_xml_text(filename, tag="Text", stdout=False):
+
+def get_xml_text(filename, tag="text", stdout=False):
     for event, elem in ET.iterparse(filename):
         if event == "end" and elem.tag == tag:
-            if stdout: print elem.tag, " ===> ", elem.text
+            if stdout:
+                print elem.tag, " ===> ", elem.text
             ret_value = elem.text
             elem.clear()
             return ret_value
 
+
 def get_texts(stdout=False):
     # For one folder list of texts.
     text_list = []
-    for num in range(1, 2):
-        folder_name = "Query" + str(num)
-        path = "emm-test-collection/" + folder_name
+    articles_path = "EMM-IR-Collection/Documents/"
 
-        query_name = "Empty"
-        for f in listdir(path):
-            if re.match("^realquery*", str(f)): query_name = str(f)
-            if not re.match("^article-*", str(f)): continue
-            full_filename = path + "/" + str(f)
-            text_list.append(Text(str(f), get_xml_text(full_filename, stdout=stdout)))
+    for f in listdir(articles_path):
+        full_filename = articles_path + str(f)
+        text_list.append(NamedText(get_xml_text(full_filename, stdout=stdout), str(f)))
 
-        full_queryname = path + "/" + query_name
-        query = (Text(query_name, get_xml_text(full_queryname, stdout=stdout)))
+    query_path = "EMM-IR-Collection/Queries/"
+    query_list = []
+    for f in listdir(query_path):
+        full_filename = query_path + str(f)
+        with open(full_filename, 'r') as my_file:
+            query_text = my_file.read()
+        query_list.append(NamedText(query_text, str(f)))
 
-    return text_list, query
+    return text_list, query_list
 
 
 def main():
-    vsm = VSM()
-    texts, query = get_texts()
-    vsm.createVocabulary(texts)
-    print map(lambda key: (key[0].name, key[1]), vsm.retrieveArticles(query))
-    # print texts[0].text
-    # print len(texts)
+    texts, queries = get_texts()
+    vsm = VSM(texts)
+    results = vsm.retrieveArticles(queries[0])
 
 main()
