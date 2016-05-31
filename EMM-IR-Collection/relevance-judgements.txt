@@ -1,0 +1,439 @@
+Query1 article-4747.xml R
+Query1 article-7366.xml R
+Query1 article-4751.xml R
+Query1 article-4536.xml R
+Query1 article-4552.xml R
+Query1 article-4748.xml R
+Query1 article-4534.xml R
+Query1 article-4535.xml R
+Query1 article-5844.xml R
+Query1 article-7096.xml R
+Query1 article-4752.xml R
+Query1 article-4539.xml R
+Query1 article-4750.xml R
+
+Query10 article-11237.xml R
+Query10 article-11200.xml R
+Query10 article-10837.xml R
+Query10 article-11115.xml R
+Query10 article-10841.xml R
+Query10 article-10838.xml R
+Query10 article-10827.xml R
+Query10 article-10843.xml R
+Query10 article-10835.xml R
+Query10 article-10832.xml R
+
+Query11 article-11237.xml R
+Query11 article-11021.xml R
+Query11 article-10867.xml R
+Query11 article-11115.xml R
+Query11 article-11071.xml R
+Query11 article-11057.xml R
+Query11 article-11117.xml R
+Query11 article-11182.xml R
+Query11 article-10866.xml R
+Query11 article-10833.xml R
+Query11 article-11058.xml R
+
+Query12 article-5845.xml R
+Query12 article-4404.xml R
+Query12 article-7370.xml R
+
+Query13 article-4552.xml R
+Query13 article-4752.xml R
+Query13 article-4529.xml R
+Query13 article-4543.xml R
+Query13 article-4521.xml R
+Query13 article-4542.xml R
+Query13 article-4539.xml R
+
+Query14 article-4521.xml R
+Query14 article-4529.xml R
+
+Query15 article-22302.xml R
+Query15 article-22305.xml R
+Query15 article-22042.xml R
+Query15 article-22045.xml R
+Query15 article-22413.xml R
+Query15 article-22041.xml R
+Query15 article-22040.xml R
+Query15 article-22046.xml R
+
+Query16 article-22050.xml R
+Query16 article-22041.xml R
+Query16 article-22045.xml R
+Query16 article-22303.xml R
+Query16 article-22413.xml R
+Query16 article-22302.xml R
+Query16 article-22305.xml R
+Query16 article-22046.xml R
+Query16 article-22040.xml R
+
+Query17 article-2210.xml R
+Query17 article-1786.xml R
+Query17 article-1727.xml R
+Query17 article-2211.xml R
+Query17 article-2209.xml R
+Query17 article-1726.xml R
+
+Query18 article-9766.xml R
+Query18 article-9821.xml R
+
+Query19 article-17177.xml R
+Query19 article-9881.xml R
+Query19 article-9762.xml R
+Query19 article-9760.xml R
+
+Query2 article-16654.xml R
+Query2 article-16652.xml R
+Query2 article-16657.xml R
+
+Query20 article-9925.xml R
+Query20 article-9760.xml R
+Query20 article-9825.xml R
+Query20 article-9765.xml R
+
+Query21 article-9765.xml R
+Query21 article-9760.xml R
+
+Query22 article-31979.xml R
+Query22 article-31641.xml R
+Query22 article-32041.xml R
+Query22 article-31702.xml R
+Query22 article-31974.xml R
+Query22 article-31294.xml R
+Query22 article-31559.xml R
+Query22 article-31697.xml R
+Query22 article-31303.xml R
+Query22 article-31693.xml R
+Query22 article-31312.xml R
+Query22 article-31300.xml R
+Query22 article-31918.xml R
+Query22 article-31566.xml R
+Query22 article-31301.xml R
+Query22 article-31872.xml R
+
+Query23 article-30979.xml R
+Query23 article-31304.xml R
+Query23 article-30998.xml R
+Query23 article-30980.xml R
+Query23 article-31299.xml R
+Query23 article-31558.xml R
+Query23 article-31560.xml R
+Query23 article-31559.xml R
+Query23 article-31465.xml R
+Query23 article-30978.xml R
+Query23 article-31471.xml R
+Query23 article-31301.xml R
+Query23 article-31567.xml R
+Query23 article-30785.xml R
+Query23 article-31231.xml R
+Query23 article-30997.xml R
+Query23 article-31334.xml R
+Query23 article-31510.xml R
+Query23 article-31321.xml R
+Query23 article-31312.xml R
+Query23 article-31658.xml R
+Query23 article-30989.xml R
+Query23 article-31201.xml R
+Query23 article-31539.xml R
+Query23 article-31294.xml R
+Query23 article-32175.xml R
+Query23 article-30896.xml R
+
+Query24 article-30675.xml R
+Query24 article-31304.xml R
+Query24 article-32355 - Copy.xml R
+Query24 article-31297.xml R
+Query24 article-30674.xml R
+
+Query25 article-26157.xml R
+Query25 article-26158.xml R
+
+Query26 article-26157.xml R
+Query26 article-25031.xml R
+
+Query27 article-12718.xml R
+Query27 article-12965.xml R
+Query27 article-12473.xml R
+Query27 article-12831.xml R
+Query27 article-12463.xml R
+Query27 article-12837.xml R
+
+Query28 article-12833.xml R
+Query28 article-12832.xml R
+
+Query29 article-17187.xml R
+Query29 article-17070.xml R
+
+Query3 article-8626.xml R
+Query3 article-8907.xml R
+Query3 article-4750.xml R
+Query3 article-8882.xml R
+Query3 article-4404.xml R
+Query3 article-4552.xml R
+
+Query30 article-17407.xml R
+Query30 article-17177.xml R
+Query30 article-17181.xml R
+Query30 article-17185.xml R
+Query30 article-17408.xml R
+Query30 article-17179.xml R
+Query30 article-17184.xml R
+Query30 article-17047.xml R
+Query30 article-17494.xml R
+Query30 article-17496.xml R
+Query30 article-17495.xml R
+Query30 article-17166.xml R
+Query30 article-17404.xml R
+
+Query31 article-13144.xml R
+
+Query32 article-24930.xml R
+Query32 article-24855.xml R
+Query32 article-24932.xml R
+Query32 article-24838.xml R
+Query32 article-24803.xml R
+Query32 article-24934.xml R
+Query32 article-24960.xml R
+Query32 article-24770.xml R
+
+Query33 article-31638.xml R
+Query33 article-32131 - Copy.xml R
+Query33 article-31622.xml R
+Query33 article-30978.xml R
+Query33 article-31465.xml R
+Query33 article-31824.xml R
+Query33 article-31697.xml R
+Query33 article-31567.xml R
+Query33 article-31973.xml R
+Query33 article-30709.xml R
+Query33 article-30980.xml R
+Query33 article-30677.xml R
+Query33 article-32041.xml R
+Query33 article-30775.xml R
+Query33 article-31274.xml R
+Query33 article-31762.xml R
+Query33 article-31694.xml R
+Query33 article-30976.xml R
+Query33 article-31261.xml R
+Query33 article-31280.xml R
+Query33 article-32021.xml R
+Query33 article-31872.xml R
+Query33 article-32131.xml R
+Query33 article-32271.xml R
+Query33 article-30979.xml R
+Query33 article-31663.xml R
+Query33 article-30673.xml R
+Query33 article-31917.xml R
+Query33 article-31916.xml R
+Query33 article-31702.xml R
+Query33 article-31221.xml R
+
+Query34 article-24059.xml R
+Query34 article-24827.xml R
+
+Query35 article-24175.xml R
+Query35 article-24001.xml R
+Query35 article-24008.xml R
+Query35 article-24058.xml R
+Query35 article-24056.xml R
+
+Query36 article-24010.xml R
+Query36 article-24058.xml R
+Query36 article-24080.xml R
+Query36 article-24001.xml R
+Query36 article-24003.xml R
+Query36 article-24838.xml R
+Query36 article-24000.xml R
+Query36 article-24017.xml R
+Query36 article-24002.xml R
+Query36 article-24084.xml R
+Query36 article-24057.xml R
+Query36 article-24009.xml R
+Query36 article-24172.xml R
+Query36 article-24143.xml R
+Query36 article-24839.xml R
+Query36 article-24012.xml R
+Query36 article-24904.xml R
+Query36 article-24013.xml R
+Query36 article-24056.xml R
+Query36 article-24175.xml R
+Query36 article-24006.xml R
+Query36 article-24011.xml R
+Query36 article-24014.xml R
+Query36 article-24007.xml R
+Query36 article-24005.xml R
+Query36 article-24142.xml R
+Query36 article-24055.xml R
+Query36 article-24004.xml R
+Query36 article-24016.xml R
+Query36 article-23997.xml R
+Query36 article-24008.xml R
+Query36 article-24081.xml R
+Query36 article-23995.xml R
+Query36 article-24015.xml R
+Query36 article-23996.xml R
+Query36 article-24173.xml R
+Query36 article-24174.xml R
+Query36 article-24772.xml R
+Query36 article-24176.xml R
+
+Query37 article-19651.xml R
+Query37 article-19633.xml R
+Query37 article-19892.xml R
+Query37 article-20077.xml R
+Query37 article-19891.xml R
+
+Query38 article-373.xml R
+Query38 article-216.xml R
+Query38 article-219.xml R
+Query38 article-210.xml R
+Query38 article-212.xml R
+Query38 article-204.xml R
+
+Query39 article-1661.xml R
+Query39 article-373.xml R
+Query39 article-275.xml R
+Query39 article-212.xml R
+Query39 article-214.xml R
+
+Query4 article-9477.xml R
+Query4 article-9466.xml R
+Query4 article-9821.xml R
+Query4 article-9459.xml R
+Query4 article-9819.xml R
+Query4 article-9469.xml R
+
+Query40 article-7893.xml R
+Query40 article-9193.xml R
+Query40 article-9194.xml R
+Query40 article-9975.xml R
+Query40 article-9201.xml R
+Query40 article-9312.xml R
+Query40 article-9244.xml R
+
+Query41 article-9244.xml R
+
+Query42 article-30980.xml R
+Query42 article-31688.xml R
+Query42 article-32131 - Copy.xml R
+Query42 article-32178.xml R
+Query42 article-31918.xml R
+Query42 article-32131.xml R
+Query42 article-32179.xml R
+Query42 article-32271.xml R
+Query42 article-32122.xml R
+Query42 article-32122 - Copy.xml R
+Query42 article-32180.xml R
+Query42 article-32272.xml R
+
+Query43 article-30671.xml R
+Query43 article-30510.xml R
+Query43 article-30897.xml R
+Query43 article-30513.xml R
+Query43 article-30704.xml R
+Query43 article-30560.xml R
+Query43 article-30512.xml R
+Query43 article-30509.xml R
+Query43 article-30514.xml R
+
+Query44 article-19603.xml R
+Query44 article-18894.xml R
+Query44 article-18891.xml R
+Query44 article-19632.xml R
+Query44 article-18886.xml R
+Query44 article-19694.xml R
+Query44 article-20077.xml R
+Query44 article-19651.xml R
+Query44 article-18889.xml R
+Query44 article-18890.xml R
+Query44 article-19891.xml R
+Query44 article-19633.xml R
+Query44 article-18896.xml R
+Query44 article-18899.xml R
+Query44 article-18897.xml R
+Query44 article-19597.xml R
+Query44 article-18893.xml R
+Query44 article-18887.xml R
+Query44 article-18888.xml R
+Query44 article-19746.xml R
+Query44 article-19602.xml R
+Query44 article-19792.xml R
+Query44 article-19601.xml R
+Query44 article-19600.xml R
+Query44 article-19649.xml R
+Query44 article-19892.xml R
+
+Query45 article-19746.xml R
+Query45 article-19744.xml R
+
+Query46 article-1538.xml R
+Query46 article-1534.xml R
+Query46 article-1533.xml R
+Query46 article-1541.xml R
+Query46 article-1539.xml R
+Query46 article-1530.xml R
+Query46 article-1540.xml R
+
+Query47 article-1666.xml R
+Query47 article-1727.xml R
+Query47 article-1726.xml R
+Query47 article-1668.xml R
+Query47 article-1659.xml R
+Query47 article-1667.xml R
+Query47 article-1657.xml R
+
+Query48 article-1726.xml R
+Query48 article-24827.xml R
+Query48 article-1727.xml R
+Query48 article-27594.xml R
+Query48 article-24855.xml R
+
+
+Query5 article-9469.xml R
+Query5 article-9472.xml R
+Query5 article-9458.xml R
+Query5 article-9468.xml R
+Query5 article-9459.xml R
+Query5 article-9471.xml R
+Query5 article-9603.xml R
+Query5 article-9474.xml R
+
+Query50 article-3732.xml R
+Query50 article-3735.xml R
+Query50 article-3885.xml R
+
+Query6 article-9703.xml R
+Query6 article-9910.xml R
+Query6 article-9813.xml R
+Query6 article-9814.xml R
+Query6 article-9764.xml R
+Query6 article-9809.xml R
+Query6 article-9817.xml R
+Query6 article-9808.xml R
+Query6 article-9702.xml R
+Query6 article-9970.xml R
+
+Query7 article-17070.xml R
+Query7 article-17187.xml R
+
+Query8 article-17496.xml R
+Query8 article-17166.xml R
+Query8 article-17047.xml R
+Query8 article-17180.xml R
+Query8 article-17177.xml R
+Query8 article-17066.xml R
+Query8 article-17182.xml R
+Query8 article-17179.xml R
+Query8 article-17408.xml R
+Query8 article-17185.xml R
+Query8 article-17184.xml R
+Query8 article-17122.xml R
+Query8 article-17407.xml R
+Query8 article-17181.xml R
+
+
+
+
+
