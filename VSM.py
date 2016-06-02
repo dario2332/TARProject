@@ -1,4 +1,4 @@
-from nltk import word_tokenize
+from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import string
@@ -7,6 +7,15 @@ import numpy as np
 from scipy import spatial
 from scipy.spatial import distance
 
+def convertTextToVector(text):
+    stop = stopwords.words('english') + list(string.punctuation)
+    st = PorterStemmer()
+    sent_token_list = sent_tokenize(text)
+    words = []
+    for sent in sent_token_list:
+        words += word_tokenize(sent)
+    return [st.stem(word.lower()) for word in words if word.lower() not in stop]
+    #return [st.stem(i) for i in word_tokenize(text.lower()) if i not in stop]
 
 class BinaryVSM(object):
 
@@ -14,30 +23,24 @@ class BinaryVSM(object):
         self.vocabulary = set()
         self.articles = []
         for article in articles:
-            article = article._replace(text=self.convertTextToVector(article.text))
+            article = article._replace(text=set(convertTextToVector(article.text)))
             self.articles.append(article)
             self.vocabulary |= self.articles[-1].text
-
-    def convertTextToVector(self, text):
-        stop = stopwords.words('english') + list(string.punctuation)
-        st = PorterStemmer()
-        return set([st.stem(i) for i in word_tokenize(text.lower()) if i not in stop])
 
     def hammingDistance(self, article_vector, query_vector):
         return len(article_vector) + len(query_vector) - 2*len(article_vector & query_vector)
 
+    def scalar(self, article_vector, query_vector):
+        return len(article_vector & query_vector)
+        
     def retrieveArticles(self, query):
-        query_vector = self.convertTextToVector(query)
+        query_vector = set(convertTextToVector(query.text))
         scores = []
         for article in self.articles:
-            scores.append(self.hammingDistance(article.text, query_vector))
+            scores.append(self.scalar(article.text, query_vector))
         articles = sorted(zip(self.articles, scores), key = lambda scored_article: scored_article[1])
+        articles.reverse()
         return articles
-
-def convertTextToVector(text):
-    stop = stopwords.words('english') + list(string.punctuation)
-    st = PorterStemmer()
-    return [st.stem(i) for i in word_tokenize(text.lower()) if i not in stop]
 
 class Document(object):
     def __init__(self, article):
@@ -56,10 +59,11 @@ class Document(object):
         if (self.vector != None):
             return self.vector
         self.vector = np.zeros(len(vocabulary))
+        #VOCABLUARY nije iterabilan istim redoslijedom
         for i, term in enumerate(vocabulary):
             self.vector[i] = self.freq(term)
         maxFreq = max(self.terms.values())
-        self.vector = 0.5 + self.vector/maxFreq
+        self.vector = 0.5 + 0.5*self.vector/maxFreq
         return self.vector
 
 def filter(a):
@@ -95,7 +99,6 @@ class VSM(object):
             scores.append(distance.cosine(document_vector, query_vector))
         articles = sorted(zip(self.articles, scores), key = lambda scored_article: scored_article[1])
         return articles
-
 
 
 
