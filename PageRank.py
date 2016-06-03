@@ -11,6 +11,11 @@ from scipy import linalg
   
 
 def pageRank(H, alpha=0.9):
+
+    row_sums = H.sum(axis=1)
+    for i, s in enumerate(row_sums):
+        if s > 0:
+            H[i] /= s
     length = H.shape[0]  
 
     H[np.all(H == 0, axis=1)] = np.ones(length) / length
@@ -27,5 +32,7 @@ def pageRank(H, alpha=0.9):
 
     for i, val in enumerate(result):
         assert np.isclose(val.imag, 0)
+
+    assert np.all(result > 0)
     return result.astype(np.dtype(np.float32))
 
