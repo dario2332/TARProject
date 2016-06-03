@@ -6,6 +6,7 @@ from collections import namedtuple
 import numpy as np
 from scipy import spatial
 from scipy.spatial import distance
+import math
 
 def convertTextToVector(text):
     stop = stopwords.words('english') + list(string.punctuation)
@@ -30,14 +31,16 @@ class BinaryVSM(object):
     def hammingDistance(self, article_vector, query_vector):
         return len(article_vector) + len(query_vector) - 2*len(article_vector & query_vector)
 
-    def scalar(self, article_vector, query_vector):
-        return len(article_vector & query_vector)
+    @staticmethod
+    def cosine(article_vector, query_vector):
+        return len(article_vector & query_vector) / math.sqrt(len(article_vector)) / math.sqrt(len(query_vector))
         
     def retrieveArticles(self, query):
         query_vector = set(convertTextToVector(query.text))
         scores = []
         for article in self.articles:
-            scores.append(self.scalar(article.text, query_vector))
+            scores.append(BinaryVSM.cosine(article.text, query_vector))
+        return scores
         articles = sorted(zip(self.articles, scores), key = lambda scored_article: scored_article[1])
         articles.reverse()
         return articles
