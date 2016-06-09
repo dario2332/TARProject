@@ -1,0 +1,239 @@
+% Paper template for TAR 2016
+% (C) 2014 Jan Šnajder, Goran Glavaš, Domagoj Alagić, Mladen Karan
+% TakeLab, FER
+
+\documentclass[10pt, a4paper]{article}
+
+\usepackage{tar2016}
+
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools,xparse}
+
+\title{Link analysis algorithms (HITS and PageRank) in the information retrieval context}
+
+\name{Dario Smolčić, Deni Munjas} 
+
+\address{
+University of Zagreb, Faculty of Electrical Engineering and Computing\\
+Unska 3, 10000 Zagreb, Croatia\\ 
+\texttt{dario.smolcic@fer.hr}, \texttt{deni.munjas@fer.hr}\\
+}
+          
+         
+\abstract{ 
+We implemented an information retrieval system that re-ranks the documents based on the analysis of between-document links with the link analysis algorithms PageRank and HITS. The information retrieval system was built using a binary vector-space retrieval model. Scores produced by vector space model were refined with the HITS and PageRank algorithms. The performance of the IR system both with and without PageRank and HITS was evaluated on the European Media Monitor test collection using standard IR metrics (R-Precision, Mean Average Precision, mean reciprocal rank).
+}
+
+\begin{document}
+
+\maketitleabstract
+
+\section{Introduction}
+Information retrieval (IR) is the activity of obtaining information resources relevant to an user’s information need from a collection of information resources. The focus of information retrieval in this paper are unstructured text documents. The classical problem in IR is the ad-hoc retrieval problem. In ad-hoc retrieval, the user enters a query describing the desired information. The system then returns a list of documents.
+
+The biggest information retrieval systems are search engines like Google and Yahoo. Search engines are nowadays becoming necessity tools for information retrieval, learning and many other aspects of life. While different information retrieval systems may have different search models and principles, vector space model, PageRank and HITS are commonly used by most popular ones, and they can be combined together to improve the search performance.
+
+\section{Vector space model}
+In vector space model documents and queries are represented as vectors of index terms:
+$$d_j = [w_{1j}, w_{2j},..., w_{tj}]$$
+$$q = [w_{1q}, w_{2q},..., w_{tq}]$$
+Where $t$ is the number of index terms in the vocabulary. Since we are using binary vector space model, weights in vectors are binary numbers. Weights are computed according to the following formula:
+%TODO Formula
+$$$$
+The relevance of the document for the query is estimated by computing some distance or similarity metric between the two vectors.
+
+Some possible similarity metrics are cosine similarity and dice similarity. Some possible distance metrics are euclidean distance and Manhattan distance. In this project, we use cosine similarity and dice similarity.
+$$Cosine(d_j, q) = \frac{d_j q}{\lVert d_j \rVert \lVert q \rVert}$$
+%TODO Dice formula.
+The most relevant documents for the given query are the ones with the highest similarity score.
+
+\section{Link analysis algorithms} \label{linkovi}
+Information retrieval content scores are not efficient for web usage due to web's massive size, therefore popularity/importance scores are introduced. Popularity scores harness information from the immense graph defined by web's hyperlink structure. In our case we are not operating online on a website database, but we are performing information retrieval on a great number of documents and we did create links among them. 
+
+Hyperlinks among documents are interpreted as recommendations. Documents with more recommendations are more important than documents with less recommendations. When assessing importance of a document, it is necessary to take into account the importance of the recommender. Recommendations from more important recommenders are worth more while the overall number of recommendations issued by the recommender also matter.
+
+\subsection{PageRank}
+Let \textbf{$H$} be the row normalized Web graph adjacency matrix.
+$$$$
+%TODO TAR-04 slide 43
+Assume there is a random surfer who surfs the web by following the hyperlink structure of the Web represented by \textbf{H}. When on a page containing no hyperlinks, surfer may hyperlink to any other page therefore a stochasticity adjustment needs to be applied to \textbf{H}:
+$$$$
+%TODO slide 46 (5).
+Where $a_i = 1$ if page $i$ has no hyperlinks and \textbf{e} is a vector of ones.
+
+Sometimes, a random surfer abandons the hyperlink method of surfing, randomly choosing the next page. With that in regard a primitivity adjustment needs to be applied according to the following formula:
+$$$$
+%TODO slide 48
+Where $\alpha$ is a scalar between 0 and 1 determining the frequency of abandoning the hyperlink structure.
+
+Let $\Pi$ be the probability distribution of the surfer across the web pages then the following formula must be valid:
+$$$$
+%TODO 21.2.2 formula
+Thus if we were to compute the principal left eigenvector of the matrix \textbf{G} — the one with eigenvalue 1 — we would have computed the PageRank values.
+
+\subsection{HITS}
+HITS defines hubs and authorities. A page is considered a hub if it contains many hyperlinks. On the other hand it is considered an authority if many hyperlinks point to it. A page is a good hub if it points to good authorities, and a good authority if it is pointed to by good hubs. We need to assign two scores to every document: an authority score and a hub score. We can update these scores iteratively according to the following formulae:
+$$$$
+%TODO page 17 -- check formulas or formulae.
+Now the right hand side of each line of Equation is a vector that is the left hand side of the other line of Equation. Substituting these into one another, we may rewrite Equation (21.9) as
+%TODO Fix paragraph i formule;
+
+\section{Pipeline}
+In this section we present the pipeline of the entire information retrieval system.
+
+\begin{enumerate}
+\item Each document is preprocessed with a Porter stemmer and stopword removal.
+\item Vocabulary is constructed from the entire collection.
+\item Every document is converted to a binary vector.
+\item For each document and a query, vector space model score (similarity score) is calculated.
+\item PageRank and HITS scores are calculated.
+\item In the last step vector space model scores are refined with PageRank or HITS scores.
+\end{enumerate}
+
+%TODO VMS, PageRank, HITS score formula combination.
+
+\section{Test collection}
+We worked with European Media Monitor test collection which contains 1742 documents and a set of 48 queries with relevance judgments. As mentioned in section \ref{linkovi} we created the hyperlinks among documents ourselves. Two different methods were used in hyperlink creation:
+\begin{itemize}
+\item Each document came with a number. We created links between documents whose number distance was smaller than 200. This method produced more or less random links among documents.
+\item We calculated cosine similarity for each pair of documents. Documents with a similarity greater than 0.8 were linked.
+\end{itemize}
+
+\section{Results}
+
+In scientific papers, this section usually (but not necessarily) briefly describes the related research. 
+
+\subsection{First subsection}
+\label{sec:first}
+
+This is a subsection of the second section.
+
+\subsection{Second subsection}
+
+This is the second subsection of the second section. Referencing the (sub)sections in text is performed as follows: ``in Section \ref{sec:first} we have shown \dots''.
+
+\subsubsection{Sub-subsection example} 
+
+This is a sub-subsection. If possible, it is better to avoid sub-subsections. 
+
+\section{Extent of the paper}
+
+The paper should have a minimum of 3 and a maximum of 5 pages, plus an additional page for references.
+
+\section{Figures and tables}
+
+\subsection{Figures}
+
+Here is an example on how to include figures in the paper. Figures are included in \LaTeX{} code immediately \textit{after} the text in which these figures are referenced. Allow \LaTeX{} to place the figure where it believes is best (usually on top of the page of at the position where you would not place the figure). Figures are referenced as follows: ``Figure~\ref{fig:figure1} shows \dots''. Use tilde (\verb.~.) to prevent separation between the word ``Figure'' and its enumeration.
+
+\subsection{Tables}
+
+There are two types of tables: narrow tables that fit into one column and a wide table that spreads over both columns.
+
+\subsubsection{Narrow tables}
+
+Table~\ref{tab:narrow-table} is an example of a narrow table. Do not use vertical lines in tables -- vertical tables have no effect and they make tables visually less attractive.
+
+\begin{table}
+\caption{This is the caption of the table. Table captions should be placed \textit{above} the table.}
+\label{tab:narrow-table}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Heading1 & Heading2 \\
+\midrule
+One & First row text \\
+Two   & Second row text \\
+Three   & Third row text \\
+      & Fourth row text \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Wide tables}
+
+Table~\ref{tab:wide-table} is an example of a wide table that spreads across both columns. The same can be done for wide figures that should spread across the whole width of the page. 
+
+\begin{table*}
+\caption{Wide-table caption}
+\label{tab:wide-table}
+\begin{center}
+\begin{tabular}{llr}
+\toprule
+Heading1 & Heading2 & Heading3\\
+\midrule
+A & A very long text, longer that the width of a single column & $128$\\
+B & A very long text, longer that the width of a single column & $3123$\\
+C & A very long text, longer that the width of a single column & $-32$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table*}
+
+\section{Math expressions and formulas}
+
+Math expressions and formulas that appear within the sentence should be written inside the so-called \emph{inline} math environment: $2+3$, $\sqrt{16}$, $h(x)=\mathbf{1}(\theta_1 x_1 + \theta_0>0)$. Larger expressions and formulas (e.g., equations) should be written in the so-called \emph{displayed} math environment:
+
+\[
+b^{(i)}_k = \begin{cases}
+1 & \text{if 
+    $k = \text{argmin}_j \| \mathbf{x}^{(i)} - \mathbf{\mu}_j \|$}\\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+Math expressions which you reference in the text should be written inside the \textit{equation} environment:
+
+\begin{equation}\label{eq:kmeans-error}
+J = \sum_{i=1}^N \sum_{k=1}^K 
+b^{(i)}_k \| \mathbf{x}^{(i)} - \mathbf{\mu}_k \|^2
+\end{equation}
+
+Now you can reference equation \eqref{eq:kmeans-error}. If the paragraph continues right after the formula
+
+\begin{equation}
+f(x) = x^2 + \varepsilon
+\end{equation}
+
+\noindent like this one does, use the command \emph{noindent} after the equation to remove the indentation of the row. 
+
+Multi-letter words in the math environment should be written inside the command \emph{mathit}, otherwise \LaTeX{} will insert spacing between the letters to denote the multiplication of values denoted by symbols. For example, compare
+$\mathit{Consistent}(h,\mathcal{D})$ and\\
+$Consistent(h,\mathcal{D})$.
+
+If you need a math symbol, but you don't know the corresponding \LaTeX{} command that generates it, try
+\emph{Detexify}.\footnote{\texttt{http://detexify.kirelabs.org/}}
+
+\section{Referencing literature}
+
+References to other publications should be written in brackets with the last name of the first author and the year of publication, e.g., \citep{chomsky-73}.  Multiple references are written in sequence, one after another, separated by semicolon and without whitespaces in between, e.g., \citep{chomsky-73,chave-64,feigl-58}. References are typically written at the end of the sentence and necessarily before the sentence punctuation.
+
+If the publication is authored by more than one author, only the name of the first author is written, after which abbreviation \emph{et al.}, meaning \emph{et alia}, i.e.,~and others is written as in \citep{johnson-etc}. If the publication is authored by only two authors, then the last names of both authors are written \citep{johnson-howells}.
+
+If the name of the author is incorporated into the text of the sentence, it should not be in the brackets (only the year should be there). E.g.,~``\citet{chomsky-73}
+suggested that \dots''. The difference is whether you reference the publication or the author who wrote it. 
+
+The list of all literature references is given alphabetically at the end of the paper. The form of the reference depends on the type of the bibliographic unit: conference papers,
+\citep{chave-64}, books \citep{butcher-81}, journal articles
+\citep{howells-51}, doctoral dissertations \citep{croft-78}, and book chapters \citep{feigl-58}. 
+
+All of this is automatically produced when using BibTeX. Insert all the BibTeX entries into the file \texttt{tar2016.bib}, and then reference them via their symbolic names.
+
+\section{Conclusion}
+
+Conclusion is the last enumerated section of the paper. It should not exceed half of a column and is typically split into 2--3 paragraphs. No new information should be presented in the conclusion; this section only summarizes and concludes the paper.
+
+\section*{Acknowledgements}
+
+If suitable, you can include the \textit{Acknowledgements} section before inserting the literature references  in order to thank those who helped you in any way to deliver the paper, but are not co-authors of the paper.
+
+\bibliographystyle{tar2016}
+\bibliography{tar2016} 
+
+\end{document}
+
