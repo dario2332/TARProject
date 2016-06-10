@@ -120,7 +120,7 @@ scores $\mathbf{a}$ as principal
 eigenvector of $\mathbf{A}^T\mathbf{A}$.
 
 In this paper the links were created in that way that adjacency matrix $\mathbf{A}$ is always symetric. That means that hub and authority scores
-turn out to be identical, so in future references we will denote this score as single HITS score.
+turn out to be identical, so in future references we will denote this score as HITS score.
 
 \section{Pipeline}
 In this section we present the pipeline of the entire information retrieval system.
@@ -129,13 +129,17 @@ In this section we present the pipeline of the entire information retrieval syst
 \item Each document is preprocessed with a Porter stemmer and stopword removal.
 \item Vocabulary is constructed from the entire collection.
 \item Every document is converted to a binary vector.
-\item For each document and a query, vector space model score (similarity score) is calculated.
-\item PageRank and HITS scores are calculated.
-\item In the last step vector space model scores are refined with PageRank or HITS scores.
-\end{enumerate}
+\item For each document and a query, vector space model score (similarity score) $S_vsm(d_j, q)$ is calculated.
+\item PageRank and HITS scores are calculated ($S_{la}(d_j)$).
+\item In the last step vector space model scores are refined with PageRank or HITS scores according to the following formula:
 
+\begin{equation}
+  S(d_j, q) = wS_vsm(d_j, q) + \frac{(1-w)S_{la}(d_j)}{log(r(d_j, q)) + log5}
+\end{equation}
+Where  $r(d_j, q)$ is the rank of documnt $d_j$ according to the vector space model and $w$ is the number between 0 and 1 that determines the importance of vector space model score in relation to the link analysis score. This formula was taken from \citep{kinez}.
 %TODO VMS, PageRank, HITS score formula combination.
 
+\end{enumerate}
 \section{Test collection}
 We worked with European Media Monitor test collection which contains 1742 documents and a set of 48 queries with relevance judgments. As mentioned in section \ref{linkovi} we created the hyperlinks among documents ourselves. Two different methods were used in hyperlink creation:
 \begin{enumerate}
@@ -151,7 +155,7 @@ Information retrieval system was evaluated using mean average precision, mean re
 \item Vector space model score refined with HITS.
 \end{itemize}
 
-Our results are presented in tables \ref{tab:MAP}, \ref{tab:MRR} and \ref{tab:MR}. Each table represents a different evaluation method. We find that mean reciprocal rank is most the important evaluation method for interpretability.
+Our results are presented in tables \ref{tab:MAP}, \ref{tab:MRR} and \ref{tab:MR}. Each table represents a different evaluation method. We find that mean reciprocal rank is the most important evaluation method for interpretability.
 
 % Threshold: 0.7, w:0.6, ranked:True
 \begin{table}
@@ -206,63 +210,6 @@ Refining vector space model scores with PageRank shows an improvement in mean av
 For this project we implemented an information retrieval system based on binary vector space model in combination with link analysis algorithms PageRank and HITS. It was shown that refining vector space model scores with PageRank improves system precision while HITS made no noticable difference.
 
 In the future the retrieval system could be improved. An obvious idea would be to use tf-idf weighting scheme instead of binary. We could also try further parameter adjustment to achieve better results. Also the system could be tested on a dataset that already contains links among documents.
-
-\section{Math expressions and formulas}
-
-Math expressions and formulas that appear within the sentence should be written inside the so-called \emph{inline} math environment: $2+3$, $\sqrt{16}$, $h(x)=\mathbf{1}(\theta_1 x_1 + \theta_0>0)$. Larger expressions and formulas (e.g., equations) should be written in the so-called \emph{displayed} math environment:
-
-\[
-b^{(i)}_k = \begin{cases}
-1 & \text{if 
-    $k = \text{argmin}_j \| \mathbf{x}^{(i)} - \mathbf{\mu}_j \|$}\\
-0 & \text{otherwise}
-\end{cases}
-\]
-
-Math expressions which you reference in the text should be written inside the \textit{equation} environment:
-
-\begin{equation}\label{eq:kmeans-error}
-J = \sum_{i=1}^N \sum_{k=1}^K 
-b^{(i)}_k \| \mathbf{x}^{(i)} - \mathbf{\mu}_k \|^2
-\end{equation}
-
-Now you can reference equation \eqref{eq:kmeans-error}. If the paragraph continues right after the formula
-
-\begin{equation}
-f(x) = x^2 + \varepsilon
-\end{equation}
-
-\noindent like this one does, use the command \emph{noindent} after the equation to remove the indentation of the row. 
-
-Multi-letter words in the math environment should be written inside the command \emph{mathit}, otherwise \LaTeX{} will insert spacing between the letters to denote the multiplication of values denoted by symbols. For example, compare
-$\mathit{Consistent}(h,\mathcal{D})$ and\\
-$Consistent(h,\mathcal{D})$.
-
-If you need a math symbol, but you don't know the corresponding \LaTeX{} command that generates it, try
-\emph{Detexify}.\footnote{\texttt{http://detexify.kirelabs.org/}}
-
-\section{Referencing literature}
-
-References to other publications should be written in brackets with the last name of the first author and the year of publication, e.g., \citep{chomsky-73}.  Multiple references are written in sequence, one after another, separated by semicolon and without whitespaces in between, e.g., \citep{chomsky-73,chave-64,feigl-58}. References are typically written at the end of the sentence and necessarily before the sentence punctuation.
-
-If the publication is authored by more than one author, only the name of the first author is written, after which abbreviation \emph{et al.}, meaning \emph{et alia}, i.e.,~and others is written as in \citep{johnson-etc}. If the publication is authored by only two authors, then the last names of both authors are written \citep{johnson-howells}.
-
-If the name of the author is incorporated into the text of the sentence, it should not be in the brackets (only the year should be there). E.g.,~``\citet{chomsky-73}
-suggested that \dots''. The difference is whether you reference the publication or the author who wrote it. 
-
-The list of all literature references is given alphabetically at the end of the paper. The form of the reference depends on the type of the bibliographic unit: conference papers,
-\citep{chave-64}, books \citep{butcher-81}, journal articles
-\citep{howells-51}, doctoral dissertations \citep{croft-78}, and book chapters \citep{feigl-58}. 
-
-All of this is automatically produced when using BibTeX. Insert all the BibTeX entries into the file \texttt{tar2016.bib}, and then reference them via their symbolic names.
-	
-\section{Conclusion}
-
-Conclusion is the last enumerated section of the paper. It should not exceed half of a column and is typically split into 2--3 paragraphs. No new information should be presented in the conclusion; this section only summarizes and concludes the paper.
-
-\section*{Acknowledgements}
-
-If suitable, you can include the \textit{Acknowledgements} section before inserting the literature references  in order to thank those who helped you in any way to deliver the paper, but are not co-authors of the paper.
 
 
 \bibliographystyle{tar2016}
