@@ -140,80 +140,72 @@ In this section we present the pipeline of the entire information retrieval syst
 We worked with European Media Monitor test collection which contains 1742 documents and a set of 48 queries with relevance judgments. As mentioned in section \ref{linkovi} we created the hyperlinks among documents ourselves. Two different methods were used in hyperlink creation:
 \begin{enumerate}
 \item Each document came with a number. We created links between documents whose number distance was smaller than 200. This method produced more or less random links among documents.
-\item We calculated cosine similarity for each pair of documents. Documents with a similarity greater than 0.8 were linked.
+\item We calculated cosine similarity for each pair of documents. Documents with a similarity greater than 0.8 were linked. In reality it is expected that similar documents would probably link to each other.
 \end{enumerate}
 
 \section{Results}
+Information retrieval system was evaluated using mean average precision, mean reciprocal rank and mean R-precision. Three different setups were evaluated:
+\begin{itemize}
+\item Vector space model score.
+\item Vector space model score refined with PageRank.
+\item Vector space model score refined with HITS.
+\end{itemize}
 
-In scientific papers, this section usually (but not necessarily) briefly describes the related research. 
+Our results are presented in tables \ref{tab:MAP}, \ref{tab:MRR} and \ref{tab:MR}. Each table represents a different evaluation method. We find that mean reciprocal rank is most the important evaluation method for interpretability.
 
-\subsection{First subsection}
-\label{sec:first}
-
-This is a subsection of the second section.
-
-\subsection{Second subsection}
-
-This is the second subsection of the second section. Referencing the (sub)sections in text is performed as follows: ``in Section \ref{sec:first} we have shown \dots''.
-
-\subsubsection{Sub-subsection example} 
-
-This is a sub-subsection. If possible, it is better to avoid sub-subsections. 
-
-\section{Extent of the paper}
-
-The paper should have a minimum of 3 and a maximum of 5 pages, plus an additional page for references.
-
-\section{Figures and tables}
-
-\subsection{Figures}
-
-Here is an example on how to include figures in the paper. Figures are included in \LaTeX{} code immediately \textit{after} the text in which these figures are referenced. Allow \LaTeX{} to place the figure where it believes is best (usually on top of the page of at the position where you would not place the figure). Figures are referenced as follows: ``Figure~\ref{fig:figure1} shows \dots''. Use tilde (\verb.~.) to prevent separation between the word ``Figure'' and its enumeration.
-
-\subsection{Tables}
-
-There are two types of tables: narrow tables that fit into one column and a wide table that spreads over both columns.
-
-\subsubsection{Narrow tables}
-
-Table~\ref{tab:narrow-table} is an example of a narrow table. Do not use vertical lines in tables -- vertical tables have no effect and they make tables visually less attractive.
-
+% Threshold: 0.7, w:0.6, ranked:True
 \begin{table}
-\caption{This is the caption of the table. Table captions should be placed \textit{above} the table.}
-\label{tab:narrow-table}
+\caption{Mean average precision.}
+\label{tab:MAP}
 \begin{center}
-\begin{tabular}{ll}
+\begin{tabular}{lll}
 \toprule
-Heading1 & Heading2 \\
+VSM & VSM + PageRank & VSM + HITS \\
 \midrule
-One & First row text \\
-Two   & Second row text \\
-Three   & Third row text \\
-      & Fourth row text \\
+0.264 & 0.266 & 0\\
 \bottomrule
 \end{tabular}
 \end{center}
 \end{table}
 
-\subsection{Wide tables}
-
-Table~\ref{tab:wide-table} is an example of a wide table that spreads across both columns. The same can be done for wide figures that should spread across the whole width of the page. 
-
-\begin{table*}
-\caption{Wide-table caption}
-\label{tab:wide-table}
+\begin{table}
+\caption{Mean reciprocal rank.}
+\label{tab:MRR}
 \begin{center}
-\begin{tabular}{llr}
+\begin{tabular}{lll}
 \toprule
-Heading1 & Heading2 & Heading3\\
+VSM & VSM + PageRank & VSM + HITS \\
 \midrule
-A & A very long text, longer that the width of a single column & $128$\\
-B & A very long text, longer that the width of a single column & $3123$\\
-C & A very long text, longer that the width of a single column & $-32$\\
+0.502 & 0.524 & 0\\
 \bottomrule
 \end{tabular}
 \end{center}
-\end{table*}
+\end{table}
+
+\begin{table}
+\caption{Mean R-precision.}
+\label{tab:MR}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+VSM & VSM + PageRank & VSM + HITS \\
+\midrule
+0.246 & 0.245 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Random link generation only caused a decrease in all precisions. With that in regard we decided to generate links using cosine similarity as described in section \ref{}. Among earlier mentioned similarity metrics we decided to use cosine similarity due to dice similarity poor results.
+
+Mean reciprocal rank in each setup is around 0.5 which means that on average the first relevant document will be found on the second rank in the retrieved document list.
+
+Refining vector space model scores with PageRank shows an improvement in mean average precision and mean reciprocal rank according to tables \ref{tab:MAP} and \ref{tab:MRR}. However refining vector space model with HITS doesn't show any improvement.
+
+\section{Conclusion}
+For this project we implemented an information retrieval system based on binary vector space model in combination with link analysis algorithms PageRank and HITS. It was shown that refining vector space model scores with PageRank improves system precision while HITS made no noticable difference.
+
+In the future the retrieval system could be improved. An obvious idea would be to use tf-idf weighting scheme instead of binary. We could also try further parameter adjustment to achieve better results. Also the system could be tested on a dataset that already contains links among documents.
 
 \section{Math expressions and formulas}
 
@@ -263,7 +255,7 @@ The list of all literature references is given alphabetically at the end of the 
 \citep{howells-51}, doctoral dissertations \citep{croft-78}, and book chapters \citep{feigl-58}. 
 
 All of this is automatically produced when using BibTeX. Insert all the BibTeX entries into the file \texttt{tar2016.bib}, and then reference them via their symbolic names.
-
+	
 \section{Conclusion}
 
 Conclusion is the last enumerated section of the paper. It should not exceed half of a column and is typically split into 2--3 paragraphs. No new information should be presented in the conclusion; this section only summarizes and concludes the paper.
@@ -272,8 +264,9 @@ Conclusion is the last enumerated section of the paper. It should not exceed hal
 
 If suitable, you can include the \textit{Acknowledgements} section before inserting the literature references  in order to thank those who helped you in any way to deliver the paper, but are not co-authors of the paper.
 
+
 \bibliographystyle{tar2016}
-\bibliography{tar2016} 
+\bibliography{tar2016}
 
 \end{document}
 
