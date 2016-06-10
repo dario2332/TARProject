@@ -39,16 +39,23 @@ The biggest information retrieval systems are search engines like Google and Yah
 
 \section{Vector space model}
 In vector space model documents and queries are represented as vectors of index terms:
-$$d_j = [w_{1j}, w_{2j},..., w_{tj}]$$
-$$q = [w_{1q}, w_{2q},..., w_{tq}]$$
+$$\mathbf{d_j} = [w_{1j}, w_{2j},..., w_{tj}]$$
+$$\mathbf{q} = [w_{1q}, w_{2q},..., w_{tq}]$$
 Where $t$ is the number of index terms in the vocabulary. Since we are using binary vector space model, weights in vectors are binary numbers. Weights are computed according to the following formula:
-%TODO Formula
-$$$$
+$$
+w_{ij} = 
+\begin{cases}
+  1,& \text{if document } \mathbf{d_j} \text{ contains term } i\\
+    0,              & \text{otherwise}
+\end{cases}
+$$
 The relevance of the document for the query is estimated by computing some distance or similarity metric between the two vectors.
 
 Some possible similarity metrics are cosine similarity and dice similarity. Some possible distance metrics are euclidean distance and Manhattan distance. In this project, we use cosine similarity and dice similarity.
-$$Cosine(d_j, q) = \frac{d_j q}{\lVert d_j \rVert \lVert q \rVert}$$
-%TODO Dice formula.
+$$Cosine(\mathbf{d_j}, \mathbf{q}) = \frac{\mathbf{d_j} \mathbf{q}}{\lVert \mathbf{d_j} \rVert \lVert \mathbf{q} \rVert}$$
+$$Dice(\mathbf{d_j}, \mathbf{q}) = 
+\frac{2\lVert \mathbf{d_j} \mathbf{q} \rVert}{{\lVert \mathbf{d_j} \rVert}^2 + {\lVert \mathbf{q} \rVert}^2}$$
+
 The most relevant documents for the given query are the ones with the highest similarity score.
 
 \section{Link analysis algorithms} \label{linkovi}
@@ -57,30 +64,63 @@ Information retrieval content scores are not efficient for web usage due to web'
 Hyperlinks among documents are interpreted as recommendations. Documents with more recommendations are more important than documents with less recommendations. When assessing importance of a document, it is necessary to take into account the importance of the recommender. Recommendations from more important recommenders are worth more while the overall number of recommendations issued by the recommender also matter.
 
 \subsection{PageRank}
-Let \textbf{$H$} be the row normalized Web graph adjacency matrix.
-$$$$
-%TODO TAR-04 slide 43
+Let $\mathbf{H}$ be the row normalized Web graph adjacency matrix.
+$$
+\mathbf{H_{ij}} = 
+\begin{cases}
+  1 / |P_i| & \text{if there is a link from page $P_i$ to page $P_j$ }\\
+    0,              & \text{otherwise}
+\end{cases}
+$$
+
 Assume there is a random surfer who surfs the web by following the hyperlink structure of the Web represented by \textbf{H}. When on a page containing no hyperlinks, surfer may hyperlink to any other page therefore a stochasticity adjustment needs to be applied to \textbf{H}:
-$$$$
+$$
+\mathbf{S} = \mathbf{H} + \mathbf{a}(\frac{1}{n} \mathbf{e}^T)
+$$
 %TODO slide 46 (5).
 Where $a_i = 1$ if page $i$ has no hyperlinks and \textbf{e} is a vector of ones.
 
 Sometimes, a random surfer abandons the hyperlink method of surfing, randomly choosing the next page. With that in regard a primitivity adjustment needs to be applied according to the following formula:
-$$$$
-%TODO slide 48
-Where $\alpha$ is a scalar between 0 and 1 determining the frequency of abandoning the hyperlink structure.
+$$
+\mathbf{G} = \alpha \mathbf{s} + (1-\alpha)\mathbf{E}
+$$
+Where $\alpha$ is a scalar between 0 and 1 determining the frequency of abandoning the hyperlink structure and $\mathbf{E}$ is the
+normalized matrix of ones.
 
-Let $\Pi$ be the probability distribution of the surfer across the web pages then the following formula must be valid:
-$$$$
-%TODO 21.2.2 formula
+Let $\boldsymbol{\pi}$ be the probability distribution of the surfer across the web pages (the vector of PageRank scores) then the following formula must be valid:
+$$
+\boldsymbol{\pi}^T = \boldsymbol{\pi}^T \mathbf{G}
+$$
 Thus if we were to compute the principal left eigenvector of the matrix \textbf{G} — the one with eigenvalue 1 — we would have computed the PageRank values.
 
 \subsection{HITS}
 HITS defines hubs and authorities. A page is considered a hub if it contains many hyperlinks. On the other hand it is considered an authority if many hyperlinks point to it. A page is a good hub if it points to good authorities, and a good authority if it is pointed to by good hubs. We need to assign two scores to every document: an authority score and a hub score. We can update these scores iteratively according to the following formulae:
-$$$$
-%TODO page 17 -- check formulas or formulae.
-Now the right hand side of each line of Equation is a vector that is the left hand side of the other line of Equation. Substituting these into one another, we may rewrite Equation (21.9) as
-%TODO Fix paragraph i formule;
+\begin{equation}
+  \label {eq:hits1}
+\begin{gathered} 
+\mathbf{h} \leftarrow \mathbf{A}\mathbf{a} \\
+\mathbf{a} \leftarrow \mathbf{A}^T\mathbf{h} 
+\end{gathered}
+\end{equation}
+
+Where $\mathbf{h}$ and $\mathbf{a}$ are the vectors of hub and authority scores and $\mathbf{A}$ is adjacency matrix. $A_ij$ 
+is 1 if there is a hyperlink from page i to page j, and 0 otherwise.
+Now the right hand side of each line of equation \ref{eq:hits1} is a vector that is the left hand side of the other line of equation.
+Substituting these into one another, we may rewrite equation \ref{eq:hits1} as:
+\begin{equation}
+  \label {eq:hits2}
+\begin{gathered} 
+\mathbf{h} \leftarrow \mathbf{A}\mathbf{A}^T\mathbf{h} \\
+\mathbf{a} \leftarrow \mathbf{A}^T\mathbf{A}\mathbf{a} 
+\end{gathered}
+\end{equation}
+
+Now we can compute vector of hub scores $\mathbf{h}$ as principal eigenvector of $\mathbf{A}\mathbf{A}^T$ and vector of authority
+scores $\mathbf{a}$ as principal
+eigenvector of $\mathbf{A}^T\mathbf{A}$.
+
+In this paper the links were created in that way that adjacency matrix $\mathbf{A}$ is always symetric. That means that hub and authority scores
+turn out to be identical, so in future references we will denote this score as single HITS score.
 
 \section{Pipeline}
 In this section we present the pipeline of the entire information retrieval system.
@@ -98,10 +138,10 @@ In this section we present the pipeline of the entire information retrieval syst
 
 \section{Test collection}
 We worked with European Media Monitor test collection which contains 1742 documents and a set of 48 queries with relevance judgments. As mentioned in section \ref{linkovi} we created the hyperlinks among documents ourselves. Two different methods were used in hyperlink creation:
-\begin{itemize}
+\begin{enumerate}
 \item Each document came with a number. We created links between documents whose number distance was smaller than 200. This method produced more or less random links among documents.
 \item We calculated cosine similarity for each pair of documents. Documents with a similarity greater than 0.8 were linked.
-\end{itemize}
+\end{enumerate}
 
 \section{Results}
 
