@@ -21,7 +21,7 @@ def combineScores(vsm_score, pr_score, articles, with_rank=False, w=0.7):
         for i, article in enumerate(articles):
             rank[i] = results.index(article) + 1
 
-        return w * vsm_score + (1-w) * pr_score / (rank + math.log(5))
+        return w * vsm_score + (1-w) * pr_score / (np.log(rank) + math.log(5))
     return w * vsm_score + (1-w) * pr_score
     
 def evaluate(texts, queries, vsm):
@@ -64,22 +64,22 @@ def evaluate(texts, queries, vsm):
 
 
 def main():
-    #texts, queries = get_texts()
+    texts, queries = get_texts()
 
     #pickle.dump(pr_score, open("Pickle/PRScore", "wb"))
     #pr_score = pickle.load(open("Pickle/PRScore", "rb"))
-    texts = pickle.load(open("Pickle/texts", "rb")) 
-    queries = pickle.load(open("Pickle/queries", "rb")) 
+    #texts = pickle.load(open("Pickle/texts", "rb")) 
+    #queries = pickle.load(open("Pickle/queries", "rb")) 
 
-    #vsm = BinaryVSM()
-    #vsm.createVocabulary(texts)
+    vsm = BinaryVSM()
+    vsm.createVocabulary(texts)
 
     #pickle.dump(texts, open("Pickle/texts", "wb"))
     #pickle.dump(queries, open("Pickle/queries", "wb"))
     #pickle.dump(vsm, open("Pickle/BinaryVSM", "wb"))
 
     #vsm = pickle.load(open("Pickle/VSM", "rb")) 
-    vsm = pickle.load(open("Pickle/BinaryVSM", "rb")) 
+    #vsm = pickle.load(open("Pickle/BinaryVSM", "rb")) 
 
     
     evaluate(texts, queries, vsm)

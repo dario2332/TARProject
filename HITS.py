@@ -11,7 +11,6 @@ from scipy import linalg
 def HITS(L):
     eigenvals, eigenvectors = linalg.eig(np.dot(L, L.T), right=True)
 
-    #ovo valjda radi ok (mozda treba apsolutne vrijednosti od eigenvals)
     h = eigenvectors[:, np.argmax(eigenvals)]
 
     for i, val in enumerate(h):
