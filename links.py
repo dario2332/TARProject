@@ -1,5 +1,6 @@
 import numpy as np
 from VSM import BinaryVSM
+from VSM import Document, VSM
 
 def getArticleNum(name):
     return int(name.split('-')[1].split('.')[0])
@@ -20,12 +21,12 @@ def createAdjacencyMatrix(articles):
 
 
 #binary articles expected
-def createLinksSmart(articles):
+def createLinksSmart(articles, treshold=0.8):
     L = np.zeros((len(articles), len(articles)))
     for i, article1 in enumerate(articles):
         for j, article2 in enumerate(articles[i+1:]):
             similarity = BinaryVSM.cosine(article1, article2)
-            if similarity > 0.8:
+            if similarity > treshold:
                 L[i][j] = 1
                 L[j][i] = 1
     return L
