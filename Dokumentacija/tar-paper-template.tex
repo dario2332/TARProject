@@ -13,14 +13,14 @@
 \usepackage{amssymb}
 \usepackage{mathtools,xparse}
 
-\title{Link analysis algorithms (HITS and PageRank) in the information retrieval context}
+\title{Link Analysis Algorithms (HITS and PageRank) in the Information Retrieval Context}
 
 \name{Dario Smolčić, Deni Munjas} 
 
 \address{
 University of Zagreb, Faculty of Electrical Engineering and Computing\\
 Unska 3, 10000 Zagreb, Croatia\\ 
-\texttt{dario.smolcic@fer.hr}, \texttt{deni.munjas@fer.hr}\\
+\texttt{\{dario.smolcic, deni.munjas\}@fer.hr}\\
 }
           
          
@@ -56,12 +56,12 @@ $$Cosine(\mathbf{d_j}, \mathbf{q}) = \frac{\mathbf{d_j} \mathbf{q}}{\lVert \math
 $$Dice(\mathbf{d_j}, \mathbf{q}) = 
 \frac{2\lVert \mathbf{d_j} \mathbf{q} \rVert}{{\lVert \mathbf{d_j} \rVert}^2 + {\lVert \mathbf{q} \rVert}^2}$$
 
-The most relevant documents for the given query are the ones with the highest similarity score.
+The most relevant documents for the given query are the ones with the highest similarity score \citep{predavanja1}.
 
 \section{Link analysis algorithms} \label{linkovi}
-Information retrieval content scores are not efficient for web usage due to web's massive size, therefore popularity/importance scores are introduced. Popularity scores harness information from the immense graph defined by web's hyperlink structure. In our case we are not operating online on a website database, but we are performing information retrieval on a great number of documents and we did create links among them. 
+Information retrieval content scores are not efficient for web usage due to web's massive size, therefore, popularity/importance scores are introduced. Popularity scores harness information from the immense graph defined by web's hyperlink structure. In our case we are not operating online on a website database, but we are performing information retrieval on a great number of documents and we did create links among them. 
 
-Hyperlinks among documents are interpreted as recommendations. Documents with more recommendations are more important than documents with less recommendations. When assessing importance of a document, it is necessary to take into account the importance of the recommender. Recommendations from more important recommenders are worth more while the overall number of recommendations issued by the recommender also matter.
+Hyperlinks among documents are interpreted as recommendations. Documents with more recommendations are more important than documents with less recommendations. When assessing importance of a document, it is necessary to take into account the importance of the recommender. Recommendations from more important recommenders are worth more while the overall number of recommendations issued by the recommender also matter \citep{predavanja2}.
 
 \subsection{PageRank}
 Let $\mathbf{H}$ be the row normalized Web graph adjacency matrix.
@@ -91,10 +91,10 @@ Let $\boldsymbol{\pi}$ be the probability distribution of the surfer across the 
 $$
 \boldsymbol{\pi}^T = \boldsymbol{\pi}^T \mathbf{G}
 $$
-Thus if we were to compute the principal left eigenvector of the matrix \textbf{G} — the one with eigenvalue 1 — we would have computed the PageRank values.
+Thus if we were to compute the principal left eigenvector of the matrix \textbf{G} — the one with eigenvalue 1 — we would have computed the PageRank values \citep{manning2008introduction}.
 
 \subsection{HITS}
-HITS defines hubs and authorities. A page is considered a hub if it contains many hyperlinks. On the other hand it is considered an authority if many hyperlinks point to it. A page is a good hub if it points to good authorities, and a good authority if it is pointed to by good hubs. We need to assign two scores to every document: an authority score and a hub score. We can update these scores iteratively according to the following formulae:
+HITS defines hubs and authorities. A page is considered a hub if it contains many hyperlinks. On the other hand, it is considered an authority if many hyperlinks point to it. A page is a good hub if it points to good authorities, and a good authority if it is pointed to by good hubs. We need to assign two scores to every document: an authority score and a hub score. We can update these scores iteratively according to the following formulae:
 \begin{equation}
   \label {eq:hits1}
 \begin{gathered} 
@@ -105,7 +105,7 @@ HITS defines hubs and authorities. A page is considered a hub if it contains man
 
 Where $\mathbf{h}$ and $\mathbf{a}$ are the vectors of hub and authority scores and $\mathbf{A}$ is adjacency matrix. $A_ij$ 
 is 1 if there is a hyperlink from page i to page j, and 0 otherwise.
-Now the right hand side of each line of equation \ref{eq:hits1} is a vector that is the left hand side of the other line of equation.
+Now the right-hand side of each line of equation \ref{eq:hits1} is a vector that is the left-hand side of the other line of the equation.
 Substituting these into one another, we may rewrite equation \ref{eq:hits1} as:
 \begin{equation}
   \label {eq:hits2}
@@ -119,7 +119,7 @@ Now we can compute vector of hub scores $\mathbf{h}$ as principal eigenvector of
 scores $\mathbf{a}$ as principal
 eigenvector of $\mathbf{A}^T\mathbf{A}$.
 
-In this paper the links were created in that way that adjacency matrix $\mathbf{A}$ is always symetric. That means that hub and authority scores
+In this paper the links were created in that way that adjacency matrix $\mathbf{A}$ is always symmetric. That means that hub and authority scores
 turn out to be identical, so in future references we will denote this score as HITS score.
 
 \section{Pipeline}
@@ -129,22 +129,22 @@ In this section we present the pipeline of the entire information retrieval syst
 \item Each document is preprocessed with a Porter stemmer and stopword removal.
 \item Vocabulary is constructed from the entire collection.
 \item Every document is converted to a binary vector.
-\item For each document and a query, vector space model score (similarity score) $S_vsm(d_j, q)$ is calculated.
+\item For each document and a query, vector space model score (similarity score) $S_{vsm}(d_j, q)$ is calculated.
 \item PageRank and HITS scores are calculated ($S_{la}(d_j)$).
 \item In the last step vector space model scores are refined with PageRank or HITS scores according to the following formula:
 
 \begin{equation}
-  S(d_j, q) = wS_vsm(d_j, q) + \frac{(1-w)S_{la}(d_j)}{log(r(d_j, q)) + log5}
+  S(d_j, q) = wS_{vsm}(d_j, q) + \frac{(1-w)S_{la}(d_j)}{log(r(d_j, q)) + log5}
 \end{equation}
-Where  $r(d_j, q)$ is the rank of documnt $d_j$ according to the vector space model and $w$ is the number between 0 and 1 that determines the importance of vector space model score in relation to the link analysis score. This formula was taken from \citep{kinez}.
+Where  $r(d_j, q)$ is the rank of document $d_j$ according to the vector space model and $w$ is the number between 0 and 1 that determines the importance of vector space model score in relation to the link analysis score. This formula was taken from \citep{kinez}.
 %TODO VMS, PageRank, HITS score formula combination.
 
 \end{enumerate}
-\section{Test collection}
-We worked with European Media Monitor test collection which contains 1742 documents and a set of 48 queries with relevance judgments. As mentioned in section \ref{linkovi} we created the hyperlinks among documents ourselves. Two different methods were used in hyperlink creation:
+\section{Test collection} \label{testCollection}
+We worked with European Media Monitor test collection which contains 1742 documents and a set of 48 queries with relevance judgments. As mentioned in Section \ref{linkovi} we created the hyperlinks among documents ourselves. Two different methods were used in hyperlink creation:
 \begin{enumerate}
 \item Each document came with a number. We created links between documents whose number distance was smaller than 200. This method produced more or less random links among documents.
-\item We calculated cosine similarity for each pair of documents. Documents with a similarity greater than 0.8 were linked. In reality it is expected that similar documents would probably link to each other.
+\item We calculated cosine similarity for each pair of documents. Documents with a similarity greater than 0.7 were linked. In reality, it is expected that similar documents would probably link to each other.
 \end{enumerate}
 
 \section{Results}
@@ -155,9 +155,10 @@ Information retrieval system was evaluated using mean average precision, mean re
 \item Vector space model score refined with HITS.
 \end{itemize}
 
-Our results are presented in tables \ref{tab:MAP}, \ref{tab:MRR} and \ref{tab:MR}. Each table represents a different evaluation method. We find that mean reciprocal rank is the most important evaluation method for interpretability.
+Our results are presented in Tables \ref{tab:MAP}, \ref{tab:MRR} and \ref{tab:MR}. Each table represents a different evaluation method. We find that mean reciprocal rank is the most important evaluation method for interpretability.
 
-% Threshold: 0.7, w:0.6, ranked:True
+% Treshold:  0.7   PageRank  w:  0.7  rank:  True
+% Treshold:  0.7   HITS  w:  0.6  rank:  True
 \begin{table}
 \caption{Mean average precision.}
 \label{tab:MAP}
@@ -166,7 +167,7 @@ Our results are presented in tables \ref{tab:MAP}, \ref{tab:MRR} and \ref{tab:MR
 \toprule
 VSM & VSM + PageRank & VSM + HITS \\
 \midrule
-0.264 & 0.266 & 0\\
+0.264 & 0.267 & 0.264\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -180,7 +181,7 @@ VSM & VSM + PageRank & VSM + HITS \\
 \toprule
 VSM & VSM + PageRank & VSM + HITS \\
 \midrule
-0.502 & 0.524 & 0\\
+0.502 & 0.525 & 0.502\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -194,20 +195,20 @@ VSM & VSM + PageRank & VSM + HITS \\
 \toprule
 VSM & VSM + PageRank & VSM + HITS \\
 \midrule
-0.246 & 0.245 & 0\\
+0.246 & 0.243 & 0.246\\
 \bottomrule
 \end{tabular}
 \end{center}
 \end{table}
 
-Random link generation only caused a decrease in all precisions. With that in regard we decided to generate links using cosine similarity as described in section \ref{}. Among earlier mentioned similarity metrics we decided to use cosine similarity due to dice similarity poor results.
+Random link generation only caused a decrease in all precisions. With that in regard we decided to generate links using cosine similarity as described in section 5. Among earlier mentioned similarity metrics we decided to use cosine similarity due to dice similarity poor results.
 
 Mean reciprocal rank in each setup is around 0.5 which means that on average the first relevant document will be found on the second rank in the retrieved document list.
 
 Refining vector space model scores with PageRank shows an improvement in mean average precision and mean reciprocal rank according to tables \ref{tab:MAP} and \ref{tab:MRR}. However refining vector space model with HITS doesn't show any improvement.
 
 \section{Conclusion}
-For this project we implemented an information retrieval system based on binary vector space model in combination with link analysis algorithms PageRank and HITS. It was shown that refining vector space model scores with PageRank improves system precision while HITS made no noticable difference.
+For this project we implemented an information retrieval system based on binary vector space model in combination with link analysis algorithms PageRank and HITS. It was shown that refining vector space model scores with PageRank improves system precision while HITS made no noticeable difference.
 
 In the future the retrieval system could be improved. An obvious idea would be to use tf-idf weighting scheme instead of binary. We could also try further parameter adjustment to achieve better results. Also the system could be tested on a dataset that already contains links among documents.
 

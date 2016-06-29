@@ -1,0 +1,13 @@
+[Done]
+* Group emails
+* Titlecase the title
+* The first two references are wrong
+* "in section 3." => "in Section 3"
+* "tables 1, 2 and 3" ⇒ "Tables 1, 2, and 3"
+* SvSM in formula 3 the subscript is broken.
+
+[What?]
+? Use a more specific title
+	- We used the one that was given to us.
+? Use commas after e.g. and i.e.
+	- We didn't use e.g. and i.e.

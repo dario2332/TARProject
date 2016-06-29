@@ -1,0 +1,484 @@
+Only VSM:
+MAP:  0.26373485571
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.4   PageRank  w:  0.5  rank:  True
+MAP:  0.255549713918
+Mean R-precision:  0.236732080146
+MRR:  0.500308496717
+Treshold:  0.4   PageRank  w:  0.5  rank:  False
+MAP:  0.230227103165
+Mean R-precision:  0.199921540278
+MRR:  0.488768733832
+Treshold:  0.4   PageRank  w:  0.6  rank:  True
+MAP:  0.259099229739
+Mean R-precision:  0.234227871392
+MRR:  0.500814431463
+Treshold:  0.4   PageRank  w:  0.6  rank:  False
+MAP:  0.242781799375
+Mean R-precision:  0.211329952467
+MRR:  0.494028127743
+Treshold:  0.4   PageRank  w:  0.7  rank:  True
+MAP:  0.262094310009
+Mean R-precision:  0.235529954725
+MRR:  0.503703697061
+Treshold:  0.4   PageRank  w:  0.7  rank:  False
+MAP:  0.251295372353
+Mean R-precision:  0.225833273221
+MRR:  0.500098758163
+Treshold:  0.4   PageRank  w:  0.8  rank:  True
+MAP:  0.262163948781
+Mean R-precision:  0.238895339341
+MRR:  0.499693023502
+Treshold:  0.4   PageRank  w:  0.8  rank:  False
+MAP:  0.256111743693
+Mean R-precision:  0.232333931998
+MRR:  0.492573917947
+Treshold:  0.4   PageRank  w:  0.9  rank:  True
+MAP:  0.262853198321
+Mean R-precision:  0.24211954569
+MRR:  0.5008954663
+Treshold:  0.4   PageRank  w:  0.9  rank:  False
+MAP:  0.260308712518
+Mean R-precision:  0.235529954725
+MRR:  0.499546186898
+Treshold:  0.4   HITS  w:  0.5  rank:  True
+MAP:  0.263166488804
+Mean R-precision:  0.238624922034
+MRR:  0.501547009032
+Treshold:  0.4   HITS  w:  0.5  rank:  False
+MAP:  0.19930036254
+Mean R-precision:  0.21015644706
+MRR:  0.2825816355
+Treshold:  0.4   HITS  w:  0.6  rank:  True
+MAP:  0.263555756928
+Mean R-precision:  0.246263810923
+MRR:  0.502025079664
+Treshold:  0.4   HITS  w:  0.6  rank:  False
+MAP:  0.206873778371
+Mean R-precision:  0.214323113727
+MRR:  0.312335440346
+Treshold:  0.4   HITS  w:  0.7  rank:  True
+MAP:  0.263675264199
+Mean R-precision:  0.246263810923
+MRR:  0.502038434365
+Treshold:  0.4   HITS  w:  0.7  rank:  False
+MAP:  0.22974188183
+Mean R-precision:  0.217755271846
+MRR:  0.440914878243
+Treshold:  0.4   HITS  w:  0.8  rank:  True
+MAP:  0.26357789568
+Mean R-precision:  0.245591767912
+MRR:  0.502038434365
+Treshold:  0.4   HITS  w:  0.8  rank:  False
+MAP:  0.256288631367
+Mean R-precision:  0.239675491834
+MRR:  0.489948084089
+Treshold:  0.4   HITS  w:  0.9  rank:  True
+MAP:  0.263555089733
+Mean R-precision:  0.245591767912
+MRR:  0.502038434365
+Treshold:  0.4   HITS  w:  0.9  rank:  False
+MAP:  0.263502491797
+Mean R-precision:  0.246263810923
+MRR:  0.502017383963
+Treshold:  0.5   PageRank  w:  0.5  rank:  True
+MAP:  0.255199360631
+Mean R-precision:  0.227713205502
+MRR:  0.508129573241
+Treshold:  0.5   PageRank  w:  0.5  rank:  False
+MAP:  0.229499460711
+Mean R-precision:  0.215076188808
+MRR:  0.498124277863
+Treshold:  0.5   PageRank  w:  0.6  rank:  True
+MAP:  0.259283864404
+Mean R-precision:  0.231710510281
+MRR:  0.514264513578
+Treshold:  0.5   PageRank  w:  0.6  rank:  False
+MAP:  0.239771640322
+Mean R-precision:  0.212338475132
+MRR:  0.504513508436
+Treshold:  0.5   PageRank  w:  0.7  rank:  True
+MAP:  0.261534285142
+Mean R-precision:  0.229627176947
+MRR:  0.507355490986
+Treshold:  0.5   PageRank  w:  0.7  rank:  False
+MAP:  0.249585802296
+Mean R-precision:  0.221476098635
+MRR:  0.508593814327
+Treshold:  0.5   PageRank  w:  0.8  rank:  True
+MAP:  0.261023493136
+Mean R-precision:  0.232992561563
+MRR:  0.499367146426
+Treshold:  0.5   PageRank  w:  0.8  rank:  False
+MAP:  0.254243597839
+Mean R-precision:  0.228385248513
+MRR:  0.493229515967
+Treshold:  0.5   PageRank  w:  0.9  rank:  True
+MAP:  0.262637628207
+Mean R-precision:  0.236464783785
+MRR:  0.500924440516
+Treshold:  0.5   PageRank  w:  0.9  rank:  False
+MAP:  0.259069732546
+Mean R-precision:  0.233793843614
+MRR:  0.497938430579
+Treshold:  0.5   HITS  w:  0.5  rank:  True
+MAP:  0.262578619784
+Mean R-precision:  0.237258434579
+MRR:  0.501967303084
+Treshold:  0.5   HITS  w:  0.5  rank:  False
+MAP:  0.184638474101
+Mean R-precision:  0.17437920347
+MRR:  0.260372523019
+Treshold:  0.5   HITS  w:  0.6  rank:  True
+MAP:  0.263129113061
+Mean R-precision:  0.241425101245
+MRR:  0.502022127645
+Treshold:  0.5   HITS  w:  0.6  rank:  False
+MAP:  0.198760393882
+Mean R-precision:  0.20501191952
+MRR:  0.281787560616
+Treshold:  0.5   HITS  w:  0.7  rank:  True
+MAP:  0.263806845632
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.5   HITS  w:  0.7  rank:  False
+MAP:  0.229178356929
+Mean R-precision:  0.214159889605
+MRR:  0.40201196037
+Treshold:  0.5   HITS  w:  0.8  rank:  True
+MAP:  0.263687225853
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.5   HITS  w:  0.8  rank:  False
+MAP:  0.256296844542
+Mean R-precision:  0.228495207065
+MRR:  0.485785172204
+Treshold:  0.5   HITS  w:  0.9  rank:  True
+MAP:  0.263547075197
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.5   HITS  w:  0.9  rank:  False
+MAP:  0.263746095562
+Mean R-precision:  0.245591767912
+MRR:  0.502022127645
+Treshold:  0.6   PageRank  w:  0.5  rank:  True
+MAP:  0.25613748178
+Mean R-precision:  0.219477691017
+MRR:  0.496261788113
+Treshold:  0.6   PageRank  w:  0.5  rank:  False
+MAP:  0.233298153459
+Mean R-precision:  0.21328478185
+MRR:  0.487454688636
+Treshold:  0.6   PageRank  w:  0.6  rank:  True
+MAP:  0.25820079319
+Mean R-precision:  0.223265569805
+MRR:  0.497380723681
+Treshold:  0.6   PageRank  w:  0.6  rank:  False
+MAP:  0.243391087353
+Mean R-precision:  0.217931725408
+MRR:  0.492229154374
+Treshold:  0.6   PageRank  w:  0.7  rank:  True
+MAP:  0.261071522895
+Mean R-precision:  0.225348903138
+MRR:  0.503490072251
+Treshold:  0.6   PageRank  w:  0.7  rank:  False
+MAP:  0.250260005173
+Mean R-precision:  0.221528591505
+MRR:  0.496113519437
+Treshold:  0.6   PageRank  w:  0.8  rank:  True
+MAP:  0.261731741824
+Mean R-precision:  0.22584970442
+MRR:  0.49793844779
+Treshold:  0.6   PageRank  w:  0.8  rank:  False
+MAP:  0.256396732109
+Mean R-precision:  0.22124239137
+MRR:  0.501901763595
+Treshold:  0.6   PageRank  w:  0.9  rank:  True
+MAP:  0.262642506303
+Mean R-precision:  0.232992561563
+MRR:  0.50056015135
+Treshold:  0.6   PageRank  w:  0.9  rank:  False
+MAP:  0.260647561056
+Mean R-precision:  0.225348903138
+MRR:  0.49661230266
+Treshold:  0.6   HITS  w:  0.5  rank:  True
+MAP:  0.262122268625
+Mean R-precision:  0.239110286431
+MRR:  0.502038662036
+Treshold:  0.6   HITS  w:  0.5  rank:  False
+MAP:  0.20119331822
+Mean R-precision:  0.211756043451
+MRR:  0.276801160056
+Treshold:  0.6   HITS  w:  0.6  rank:  True
+MAP:  0.263686024192
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.6   HITS  w:  0.6  rank:  False
+MAP:  0.20150713738
+Mean R-precision:  0.211756043451
+MRR:  0.276935858714
+Treshold:  0.6   HITS  w:  0.7  rank:  True
+MAP:  0.263791135444
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.6   HITS  w:  0.7  rank:  False
+MAP:  0.203258592038
+Mean R-precision:  0.211756043451
+MRR:  0.287489395679
+Treshold:  0.6   HITS  w:  0.8  rank:  True
+MAP:  0.263863202516
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.6   HITS  w:  0.8  rank:  False
+MAP:  0.23089225898
+Mean R-precision:  0.215962774221
+MRR:  0.42481146388
+Treshold:  0.6   HITS  w:  0.9  rank:  True
+MAP:  0.263868742724
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.6   HITS  w:  0.9  rank:  False
+MAP:  0.262808451708
+Mean R-precision:  0.243276953097
+MRR:  0.502038662036
+Treshold:  0.7   PageRank  w:  0.5  rank:  True
+MAP:  0.252568840395
+Mean R-precision:  0.243150825367
+MRR:  0.475378672875
+Treshold:  0.7   PageRank  w:  0.5  rank:  False
+MAP:  0.202755322195
+Mean R-precision:  0.19931014264
+MRR:  0.427667983976
+Treshold:  0.7   PageRank  w:  0.6  rank:  True
+MAP:  0.259441774429
+Mean R-precision:  0.243150825367
+MRR:  0.512081294912
+Treshold:  0.7   PageRank  w:  0.6  rank:  False
+MAP:  0.236944565134
+Mean R-precision:  0.235874882783
+MRR:  0.456530716447
+Treshold:  0.7   PageRank  w:  0.7  rank:  True
+MAP:  0.267241902531
+Mean R-precision:  0.243150825367
+MRR:  0.525700947327
+Treshold:  0.7   PageRank  w:  0.7  rank:  False
+MAP:  0.251247769386
+Mean R-precision:  0.24632256682
+MRR:  0.471063066093
+Treshold:  0.7   PageRank  w:  0.8  rank:  True
+MAP:  0.264799569646
+Mean R-precision:  0.243952107418
+MRR:  0.512339947197
+Treshold:  0.7   PageRank  w:  0.8  rank:  False
+MAP:  0.258798541129
+Mean R-precision:  0.241151928207
+MRR:  0.499570777219
+Treshold:  0.7   PageRank  w:  0.9  rank:  True
+MAP:  0.264424907715
+Mean R-precision:  0.247999922034
+MRR:  0.501968923052
+Treshold:  0.7   PageRank  w:  0.9  rank:  False
+MAP:  0.260230527489
+Mean R-precision:  0.243150825367
+MRR:  0.503203057621
+Treshold:  0.7   HITS  w:  0.5  rank:  True
+MAP:  0.261440939539
+Mean R-precision:  0.239110286431
+MRR:  0.502037265397
+Treshold:  0.7   HITS  w:  0.5  rank:  False
+MAP:  0.200949159213
+Mean R-precision:  0.212428086462
+MRR:  0.276886131263
+Treshold:  0.7   HITS  w:  0.6  rank:  True
+MAP:  0.26352614385
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.7   HITS  w:  0.6  rank:  False
+MAP:  0.201189365988
+Mean R-precision:  0.211756043451
+MRR:  0.276915313284
+Treshold:  0.7   HITS  w:  0.7  rank:  True
+MAP:  0.263645400707
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.7   HITS  w:  0.7  rank:  False
+MAP:  0.203036821563
+Mean R-precision:  0.211756043451
+MRR:  0.287367084637
+Treshold:  0.7   HITS  w:  0.8  rank:  True
+MAP:  0.26365347079
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.7   HITS  w:  0.8  rank:  False
+MAP:  0.222894018645
+Mean R-precision:  0.213358607554
+MRR:  0.393561237706
+Treshold:  0.7   HITS  w:  0.9  rank:  True
+MAP:  0.263717110467
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.7   HITS  w:  0.9  rank:  False
+MAP:  0.262714088917
+Mean R-precision:  0.243276953097
+MRR:  0.502038662036
+Treshold:  0.8   PageRank  w:  0.5  rank:  True
+MAP:  0.256234879293
+Mean R-precision:  0.239785440752
+MRR:  0.480375917502
+Treshold:  0.8   PageRank  w:  0.5  rank:  False
+MAP:  0.203725218257
+Mean R-precision:  0.194343493772
+MRR:  0.412275024588
+Treshold:  0.8   PageRank  w:  0.6  rank:  True
+MAP:  0.256324111724
+Mean R-precision:  0.239785440752
+MRR:  0.482613625821
+Treshold:  0.8   PageRank  w:  0.6  rank:  False
+MAP:  0.238190773517
+Mean R-precision:  0.226879422226
+MRR:  0.449367542389
+Treshold:  0.8   PageRank  w:  0.7  rank:  True
+MAP:  0.262533934463
+Mean R-precision:  0.243952107418
+MRR:  0.497698668186
+Treshold:  0.8   PageRank  w:  0.7  rank:  False
+MAP:  0.254560095016
+Mean R-precision:  0.233182030721
+MRR:  0.477490607008
+Treshold:  0.8   PageRank  w:  0.8  rank:  True
+MAP:  0.263349958768
+Mean R-precision:  0.244723712356
+MRR:  0.502988916997
+Treshold:  0.8   PageRank  w:  0.8  rank:  False
+MAP:  0.254605343921
+Mean R-precision:  0.238396551863
+MRR:  0.472503892614
+Treshold:  0.8   PageRank  w:  0.9  rank:  True
+MAP:  0.264386327733
+Mean R-precision:  0.245591767912
+MRR:  0.501806726709
+Treshold:  0.8   PageRank  w:  0.9  rank:  False
+MAP:  0.263608874698
+Mean R-precision:  0.243952107418
+MRR:  0.500977521622
+Treshold:  0.8   HITS  w:  0.5  rank:  True
+MAP:  0.263662825532
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.5  rank:  False
+MAP:  0.263470237779
+Mean R-precision:  0.245057579878
+MRR:  0.502064318851
+Treshold:  0.8   HITS  w:  0.6  rank:  True
+MAP:  0.263691379025
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.6  rank:  False
+MAP:  0.263526306543
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.7  rank:  True
+MAP:  0.263699356432
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.7  rank:  False
+MAP:  0.263606037799
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.8  rank:  True
+MAP:  0.263697268002
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.8  rank:  False
+MAP:  0.263640247972
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.9  rank:  True
+MAP:  0.263690203856
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.8   HITS  w:  0.9  rank:  False
+MAP:  0.263701488445
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.9   PageRank  w:  0.5  rank:  True
+MAP:  0.253780027021
+Mean R-precision:  0.226248851954
+MRR:  0.50207933761
+Treshold:  0.9   PageRank  w:  0.5  rank:  False
+MAP:  0.246975300933
+Mean R-precision:  0.229404869324
+MRR:  0.516929250552
+Treshold:  0.9   PageRank  w:  0.6  rank:  True
+MAP:  0.260566038367
+Mean R-precision:  0.227613999153
+MRR:  0.512261366542
+Treshold:  0.9   PageRank  w:  0.6  rank:  False
+MAP:  0.250552231871
+Mean R-precision:  0.229404869324
+MRR:  0.513296061449
+Treshold:  0.9   PageRank  w:  0.7  rank:  True
+MAP:  0.262063114
+Mean R-precision:  0.230996033785
+MRR:  0.51175131944
+Treshold:  0.9   PageRank  w:  0.7  rank:  False
+MAP:  0.254799886546
+Mean R-precision:  0.229404869324
+MRR:  0.513002336003
+Treshold:  0.9   PageRank  w:  0.8  rank:  True
+MAP:  0.262955326532
+Mean R-precision:  0.232298117118
+MRR:  0.51134487384
+Treshold:  0.9   PageRank  w:  0.8  rank:  False
+MAP:  0.258756653798
+Mean R-precision:  0.226248851954
+MRR:  0.511382350306
+Treshold:  0.9   PageRank  w:  0.9  rank:  True
+MAP:  0.26228465271
+Mean R-precision:  0.232298117118
+MRR:  0.500955083132
+Treshold:  0.9   PageRank  w:  0.9  rank:  False
+MAP:  0.2618722209
+Mean R-precision:  0.230996033785
+MRR:  0.511753847092
+Treshold:  0.9   HITS  w:  0.5  rank:  True
+MAP:  0.262418629679
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.9   HITS  w:  0.5  rank:  False
+MAP:  0.262377778783
+Mean R-precision:  0.245591767912
+MRR:  0.502064318851
+Treshold:  0.9   HITS  w:  0.6  rank:  True
+MAP:  0.262554563517
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.9   HITS  w:  0.6  rank:  False
+MAP:  0.26236413755
+Mean R-precision:  0.245591767912
+MRR:  0.502064318851
+Treshold:  0.9   HITS  w:  0.7  rank:  True
+MAP:  0.262772001367
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.9   HITS  w:  0.7  rank:  False
+MAP:  0.262376899278
+Mean R-precision:  0.245591767912
+MRR:  0.502064318851
+Treshold:  0.9   HITS  w:  0.8  rank:  True
+MAP:  0.263102661639
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.9   HITS  w:  0.8  rank:  False
+MAP:  0.26242503224
+Mean R-precision:  0.245591767912
+MRR:  0.502064318851
+Treshold:  0.9   HITS  w:  0.9  rank:  True
+MAP:  0.263401968386
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036
+Treshold:  0.9   HITS  w:  0.9  rank:  False
+MAP:  0.262694905035
+Mean R-precision:  0.245591767912
+MRR:  0.502038662036

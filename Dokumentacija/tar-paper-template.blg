@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tar-paper-template.aux
 The style file: tar2016.bst
 Database file #1: tar2016.bib
-You've used 8 entries,
+Warning--can't use both volume and number fields in manning2008introduction
+You've used 4 entries,
             2490 wiz_defined-function locations,
-            600 strings with 5308 characters,
-and the built_in function-call counts, 2763 in all, are:
-= -- 290
-> -- 89
+            570 strings with 4994 characters,
+and the built_in function-call counts, 1311 in all, are:
+= -- 131
+> -- 56
 < -- 2
-+ -- 26
-- -- 26
-* -- 181
-:= -- 469
-add.period$ -- 33
-call.type$ -- 8
-change.case$ -- 42
-chr.to.int$ -- 8
-cite$ -- 8
-duplicate$ -- 135
-empty$ -- 221
-format.name$ -- 35
-if$ -- 575
++ -- 18
+- -- 18
+* -- 86
+:= -- 227
+add.period$ -- 16
+call.type$ -- 4
+change.case$ -- 23
+chr.to.int$ -- 4
+cite$ -- 5
+duplicate$ -- 51
+empty$ -- 98
+format.name$ -- 24
+if$ -- 266
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 9
-newline$ -- 50
-num.names$ -- 28
-pop$ -- 53
+missing$ -- 2
+newline$ -- 27
+num.names$ -- 12
+pop$ -- 35
 preamble$ -- 1
-purify$ -- 51
+purify$ -- 28
 quote$ -- 0
-skip$ -- 97
+skip$ -- 46
 stack$ -- 0
-substring$ -- 94
-swap$ -- 26
+substring$ -- 20
+swap$ -- 10
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
-warning$ -- 0
-while$ -- 23
-width$ -- 9
-write$ -- 115
+type$ -- 28
+warning$ -- 1
+while$ -- 8
+width$ -- 5
+write$ -- 56
+(There was 1 warning)

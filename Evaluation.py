@@ -18,10 +18,10 @@ def evaluate(results_file, query_num, relevances):
 
             
         precision = precision / relevant
-        #print query_num
-        #print "AP: ", precision
-        #print "R-precision: ", r_precision
-        #print "RR: ", rr
+        print query_num
+        print "AP: ", precision
+        print "R-precision: ", r_precision
+        print "RR: ", rr
         return precision, r_precision, rr
 
 def getRelevances():

@@ -64,6 +64,7 @@ def evaluate(texts, queries, vsm):
 
 
 def main():
+    print "Loading documents..."
     texts, queries = get_texts()
 
     #pickle.dump(pr_score, open("Pickle/PRScore", "wb"))
@@ -71,6 +72,7 @@ def main():
     #texts = pickle.load(open("Pickle/texts", "rb")) 
     #queries = pickle.load(open("Pickle/queries", "rb")) 
 
+    print "Creating vocabulary..."
     vsm = BinaryVSM()
     vsm.createVocabulary(texts)
 
@@ -82,29 +84,39 @@ def main():
     #vsm = pickle.load(open("Pickle/BinaryVSM", "rb")) 
 
     
-    evaluate(texts, queries, vsm)
-    #H = createLinksSmart(map(lambda x: x.text, vsm.articles))
-    #pr_score = pageRank(H)
+    #evaluate(texts, queries, vsm)
+    print "Creating links..."
+    H = createLinksSmart(map(lambda x: x.text, vsm.articles), 0.7)
+    print "Creating PageRank scores..."
+    pr_score = pageRank(H)
+    print "Creating HITS scores..."
+    hits_score, _ = HITS(H)
     #print len(vsm.vocabulary)
 
     #relevances = getRelevances()
-    #for query in queries:
-    #    scores = vsm.retrieveArticles(query)
-    #    #scores = np.array(scores)
-    #    #scores = scores * pr_score
-    #    #scores = scores + pr_score
+    while True:
+        print "[1] VSM, [2] VSM + PageRank, [3] VSM + HITS, [4] exit, Start: "
+        answer = raw_input("")
+        if answer == "4": break
+        else:
+            for query in queries:
+                scores = vsm.retrieveArticles(query)
 
-    #    #scores = combineScores(np.array(scores), pr_score, map(lambda x: x.name, texts))
-    #    results = sorted(zip(texts, scores), key = lambda scored_article: scored_article[1])
-    #    results.reverse()
+                if answer == "2":
+                    scores = combineScores(np.array(scores), pr_score, map(lambda x: x.name, texts), True, w=0.7)
+                elif answer == "3":
+                    scores = combineScores(np.array(scores), hits_score, map(lambda x: x.name, texts), True, w=0.6)
 
-    #    
-    #    lines = []
-    #    for res in results:
-    #        lines.append(res[0].name + " " + str(res[1]) + "\n")
-    #    with open("Results/" + query.name, "w") as f:
-    #        f.writelines(lines)
-    #    evaluate("Results/" + query.name, getQueryNum(query.name), relevances)
+                results = sorted(zip(texts, scores), key = lambda scored_article: scored_article[1])
+                results.reverse()
+
+
+                lines = []
+                for res in results:
+                    lines.append(res[0].name + " " + str(res[1]) + "\n")
+                with open("Results/" + query.name, "w") as f:
+                    f.writelines(lines)
+            evaluateEverything()
 
 if __name__ == "__main__":
     main()
